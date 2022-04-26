@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
+import Menu from './components/Menu'
+import { Routes, Route } from "react-router-dom";
+import CreateReader from './screens/CreateReader'
+import Booking from './screens/Booking'
+import Books from './screens/Books'
+import Readers from './screens/Readers'
+import Navigations from './components/Navigations'
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Menu />
+      <Routes>
+        <Route path="/" element={<Navigations/>} />
+        <Route path="/reader/create" element={<CreateReader />} />
+        <Route path="/books" element={<Books />} />
+        <Route path="/readers" element={<Readers />} />
+        <Route path="/booking/create" element={<Booking />} />
+      </Routes>
+    </>
   );
 }
-
-export default App;
